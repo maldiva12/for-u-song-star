@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You, Vel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Quicksand', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 350px;
+      animation: dropIn 1s ease forwards;
+    }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #c94f7c;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #f76c6c;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e05757;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 2rem;
+      font-size: 18px;
+      color: #c94f7c;
+      display: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Lagu lokal, mulai saat tombol diklik -->
+  <audio id="bg-music" loop>
+    <source src="song me.mp3" type="audio/mp3" />
+    Browser kamu tidak mendukung audio 😢
+  </audio>
+
+  <div class="card">
+    <h1>Little fun fact for you</h1>
+    <p>aku mau bilang sesuatu ke kamu vel...</p>
+    <button onclick="reveal()">Klik di sini yaa 🤍</button>
+    <div class="result" id="result">
+      I will always like you. ❤️
+    </div>
+  </div>
+
+  <script>
+    function reveal() {
+      document.getElementById("result").style.display = "block";
+
+      const music = document.getElementById("bg-music");
+      music.play().catch((e) => {
+        console.log("Gagal memutar musik:", e);
+      });
+    }
+  </script>
+</body>
+</html>
